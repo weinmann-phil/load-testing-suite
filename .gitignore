@@ -1,0 +1,11 @@
+# Gatling
+**/.gatling
+
+# Configurations and Backups
+**/*/*_bak.sh
+**/.env
+**/logs
+
+# Test Outputs
+docs/outputs/*
+!docs/outputs/*.md
