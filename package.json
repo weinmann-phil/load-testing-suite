@@ -1,0 +1,13 @@
+{
+    "name": "testing-suite",
+    "version": "0.0.1",
+    "scripts": {
+      "shell:build": "docker compose -f docker-compose.yml build",
+      "shell": "npm run shell:build && docker compose -f docker-compose.yml run --rm -u 1000 --service-ports --name noa-performancetests app bash || true && echo Stopping environment... && npm run shell:stop",
+      "shell:join": "docker exec -it noa-performancetests bash || true",
+      "shell:stop": "docker compose -f docker-compose.yml down",
+      "shell:m1build": "docker buildx build --platform amd64 --output=type=docker --target dockershell -t noa-performancetests .",
+      "shell:m1": "docker compose -f docker-compose.arm64.yml run --rm -u 1000 --service-ports --name noa-performancetests-linck app bash || true && echo Stopping environment... && npm run shell:stop"
+    }
+  }
+  
